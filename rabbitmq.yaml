@@ -1,0 +1,29 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rabbitmq
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+    spec:
+      containers:
+        -
+          image: "docker.io/rabbitmq:management"
+          imagePullPolicy: Always
+          name: rabbitmq
+          ports:
+            -
+              containerPort: 15672
+              name: http-port
+          volumeMounts:
+            -
+              mountPath: /var/rabbitmqapp_home
+              name: rabbitmqapp-home
+      volumes:
+        -
+          emptyDir: {}
+          name: rabbitmqapp-home
