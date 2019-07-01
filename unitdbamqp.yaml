@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: unitamqp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: unitamqp
+    spec:
+      containers:
+        -
+          image: "unitamqp:1.0"
+          imagePullPolicy: Never
+          name: unitamqp
+          ports:
+            -
+              containerPort: 8097
+              name: http-port
