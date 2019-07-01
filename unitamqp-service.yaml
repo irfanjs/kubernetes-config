@@ -10,7 +10,6 @@ spec:
       port: 8097
       targetPort: 8097
       protocol: TCP
-      nodePort: 32222
   selector:
     app: unitamqp
   type: NodePort
