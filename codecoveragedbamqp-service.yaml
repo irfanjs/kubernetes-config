@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: codecoveragedbamqp
+  namespace: default
+spec:
+  ports:
+    - name: service
+      port: 8096
+      targetPort: 8096
+      protocol: TCP
+  selector:
+    app: codecoveragedbamqp
+  type: NodePort
