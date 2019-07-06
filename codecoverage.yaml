@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: codecoverageamqp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: codecoverageamqp
+    spec:
+      containers:
+        -
+          image: "codecoverageamqp:1.0"
+          imagePullPolicy: Never
+          name: codecoverageamqp
+          ports:
+            -
+              containerPort: 8098
+              name: http-port
