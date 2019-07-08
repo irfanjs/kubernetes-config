@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pmddbamqp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: pmddbamqp
+    spec:
+      containers:
+        -
+          image: "pmddbamqp:1.0"
+          imagePullPolicy: Never
+          name: pmddbamqp
+          ports:
+            -
+              containerPort: 8096
+              name: http-port
