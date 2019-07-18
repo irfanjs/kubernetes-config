@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: findbugdbamqp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: findbugdbamqp
+    spec:
+      containers:
+        -
+          image: "findbugdbamqp:1.0"
+          imagePullPolicy: Never
+          name: findbugdbamqp
+          ports:
+            -
+              containerPort: 8097
+              name: http-port
