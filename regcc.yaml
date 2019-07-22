@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: regcc
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: regcc
+    spec:
+      containers:
+        -
+          image: "regcc:1.0"
+          imagePullPolicy: Never
+          name: regcc
+          ports:
+            -
+              containerPort: 8097
+              name: http-port

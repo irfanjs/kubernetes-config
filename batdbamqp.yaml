@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: batdbamqp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: batdbamqp
+    spec:
+      containers:
+        -
+          image: "batdbamqp:1.0"
+          imagePullPolicy: Never
+          name: batdbamqp
+          ports:
+            -
+              containerPort: 8099
+              name: http-port
