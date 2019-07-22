@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: regamqp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: regamqp
+    spec:
+      containers:
+        -
+          image: "regamqp:1.0"
+          imagePullPolicy: Never
+          name: regamqp
+          ports:
+            -
+              containerPort: 8097
+              name: http-port
