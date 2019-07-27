@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: regdbamqp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: regdbamqp
+    spec:
+      containers:
+        -
+          image: "regdbamqp:1.0"
+          imagePullPolicy: Never
+          name: regdbamqp
+          ports:
+            -
+              containerPort: 8099
+              name: http-port
