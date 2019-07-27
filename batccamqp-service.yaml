@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: batccamqp
+  namespace: default
+spec:
+  ports:
+    - name: service
+      port: 8097
+      targetPort: 8097
+      protocol: TCP
+  selector:
+    app: batccamqp
+  type: NodePort
