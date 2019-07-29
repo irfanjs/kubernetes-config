@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: codecollabamqp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: codecollabamqp
+    spec:
+      containers:
+        -
+          image: "codecollabamqp:1.0"
+          imagePullPolicy: Never
+          name: codecollabamqp
+          ports:
+            -
+              containerPort: 8097
+              name: http-port
