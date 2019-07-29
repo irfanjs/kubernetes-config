@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: bsamqp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: bsamqp
+    spec:
+      containers:
+        -
+          image: "bsamqp:1.0"
+          imagePullPolicy: Never
+          name: bsamqp
+          ports:
+            -
+              containerPort: 8097
+              name: http-port
