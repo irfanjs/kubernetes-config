@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: complexamqp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: complexamqp
+    spec:
+      containers:
+        -
+          image: "complexamqp:1.0"
+          imagePullPolicy: Never
+          name: complexamqp
+          ports:
+            -
+              containerPort: 8097
+              name: http-port
